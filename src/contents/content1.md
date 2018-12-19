@@ -10,4 +10,7 @@ test
 
 ```js
 const a = 1;
+const b = 2;
 ```
+
+<img src="../res/チノ1.png" width=200>

@@ -1,3 +1,6 @@
+body {
+  overflow-y: scroll;
+}
 #logodiv {
   text-align: center;
 }
@@ -7,19 +10,27 @@ svg {
   min-width: 100px;
   margin: 4% 20%;
   margin-bottom: 0%;
+  cursor: pointer;
 }
 #article-container {
   margin: 2rem;
-  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+.card-container {
+  min-width: 15rem;
+  width: 30%;
+  align-items: flex-start;
+  display: inline-block;
+  /* box-sizing: inherit; */
 }
 .card {
-  width: 30%;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
   margin: 1rem;
-  float: left;
-  box-sizing: inherit;
 }
 .card-img {
   border-radius: 5px 5px 0 0;

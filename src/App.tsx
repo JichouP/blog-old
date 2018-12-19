@@ -15,9 +15,8 @@ class App extends Component<{}, {}> {
     const keys = Object.keys(contents);
     return keys.map(v => {
       const parse = jsyaml.safeLoad(contents[v].match(/---[\s\S]*---/)[0].replace(/---/g, ''));
-      console.log(parse);
       return (
-        <div key={v}>
+        <div className="card-container" key={v}>
           <Link to={v}>
             <Card title={parse.title} text={parse.subtitle} imageUrl={res[parse.image]} />
           </Link>
@@ -26,18 +25,24 @@ class App extends Component<{}, {}> {
     });
   };
   render() {
+    prettyPrint();
     return (
       <BrowserRouter>
         <div>
           <Logo />
-          <div id="article-container">
+          <div>
             <Switch>
               <Route exact path="/">
-                <div>{this.renderCard()}</div>
+                <div id="article-container">{this.renderCard()}</div>
               </Route>
               {Object.keys(contents).map(v => (
                 <Route path={`/${v}`} key={v}>
-                  <ReactMarkdown source={contents[v].replace(/---[\s\S]*---\n/, '')} />
+                  <ReactMarkdown
+                    source={contents[v]
+                      .replace(/---[\s\S]*---\n/, '')
+                      .replace(/\.\.\/res\/(.+)\.png/g, (_: string, b: string) => `${res[b]}`)}
+                    escapeHtml={false}
+                  />
                 </Route>
               ))}
             </Switch>
