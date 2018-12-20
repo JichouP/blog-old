@@ -14,10 +14,15 @@ class Logo extends Component<RouteComponentProps<{}>, any> {
       }
     }
     new Vivus(
-      'logodiv',
+      'logowrapper',
       {
         file: logofile,
         delay: 100,
+        onReady: () => {
+          document.getElementById('svg8').onclick = () => {
+            this.props.history.push('/');
+          };
+        },
       },
       () => {
         Snap('#svg8')
@@ -27,14 +32,7 @@ class Logo extends Component<RouteComponentProps<{}>, any> {
     );
   };
   render() {
-    return (
-      <div
-        id="logodiv"
-        onClick={() => {
-          this.props.history.push('/');
-        }}
-      />
-    );
+    return <div id="logowrapper" />;
   }
 }
 

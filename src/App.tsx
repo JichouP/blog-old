@@ -12,20 +12,19 @@ class App extends Component<{}, {}> {
     super(props);
   }
   renderCard = () => {
-    const keys = Object.keys(contents);
+    const keys = Object.keys(contents).sort();
     return keys.map(v => {
       const parse = jsyaml.safeLoad(contents[v].match(/---[\s\S]*---/)[0].replace(/---/g, ''));
       return (
-        <div className="card-container" key={v}>
+        <div className="card-wrapper" key={v}>
           <Link to={v}>
-            <Card title={parse.title} text={parse.subtitle} imageUrl={res[parse.image]} />
+            <Card title={parse.title} date={parse.date} imageUrl={res[parse.image]} />
           </Link>
         </div>
       );
     });
   };
   render() {
-    prettyPrint();
     return (
       <BrowserRouter>
         <div>
@@ -33,16 +32,20 @@ class App extends Component<{}, {}> {
           <div>
             <Switch>
               <Route exact path="/">
-                <div id="article-container">{this.renderCard()}</div>
+                <div className="card-container">{this.renderCard()}</div>
               </Route>
               {Object.keys(contents).map(v => (
                 <Route path={`/${v}`} key={v}>
-                  <ReactMarkdown
-                    source={contents[v]
-                      .replace(/---[\s\S]*---\n/, '')
-                      .replace(/\.\.\/res\/(.+)\.png/g, (_: string, b: string) => `${res[b]}`)}
-                    escapeHtml={false}
-                  />
+                  <div className="article-container">
+                    <ReactMarkdown
+                      source={`# ${
+                        jsyaml.safeLoad(contents[v].match(/---[\s\S]*---/)[0].replace(/---/g, '')).title
+                      }\n${contents[v]
+                        .replace(/---[\s\S]*---\n/, '')
+                        .replace(/\.\.\/res\/(.+)\.png/g, (_: string, b: string) => `${res[b]}`)}`}
+                      escapeHtml={false}
+                    />
+                  </div>
                 </Route>
               ))}
             </Switch>

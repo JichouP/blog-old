@@ -4,6 +4,4 @@ date: '89-38-10'
 image: 'チノ2'
 ---
 
-# Content2
-
 hello

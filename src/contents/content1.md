@@ -4,8 +4,6 @@ date: '11-45-14'
 image: 'チノ1'
 ---
 
-# Content1
-
 test
 
 ```js
