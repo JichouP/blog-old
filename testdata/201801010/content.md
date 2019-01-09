@@ -6,9 +6,15 @@ image: 'チノ1'
 
 test
 
-```js
+```ts
 const a = 1;
 const b = 2;
+const fn = (num: number) => num * 2;
+let a = 1;
+var x = 3;
+if (a === 1) {
+  console.log('hi');
+}
 ```
 
-<img src="../res/チノ1.png" width=200>
+<img src="./チノ1.png" width=200>

@@ -7,15 +7,17 @@
     <style type="text/css">
       body {
         overflow-y: scroll;
+        word-wrap: break-word;
       }
       h1 {
         font-size: 2rem;
       }
-      p {
-        font-size: 1.3rem;
-      }
       a {
         text-decoration: none;
+      }
+      code {
+        background: #ddd;
+        padding: 3px;
       }
       svg {
         width: auto;
@@ -23,6 +25,12 @@
         min-width: 100px;
         margin: 1rem 0rem 0rem;
         cursor: pointer;
+        transform: scale(1);
+        transition: 0.2s ease;
+      }
+      svg:hover {
+        transform: scale(1.1);
+        transition: 0.2s ease;
       }
       #logowrapper {
         text-align: center;

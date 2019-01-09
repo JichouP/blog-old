@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Logo from './Logo';
 import Cards from './Cards';
-import ArticleRouter from './ArticleRouter';
-import Linkbar from './LinkBar';
+import ScrollToTop from './ScrollToTop';
+import NotFound from './NotFound';
+// import Linkbar from './LinkBar';
+
+import contents from './contents/*/*.*';
+import MarkdownParse from './MarkdownParse';
 
 const RootContainer = styled.div`
   padding: 4rem 0rem;
@@ -17,14 +22,6 @@ const TitleText = styled.p`
 const MainContainer = styled.div`
   margin: 3rem;
 `;
-const CardContainer = styled.div`
-  margin: 0rem auto;
-  max-width: 65rem;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
-`;
 
 class App extends Component<{}, {}> {
   constructor(props: {}) {
@@ -33,21 +30,34 @@ class App extends Component<{}, {}> {
   render() {
     return (
       <BrowserRouter>
-        <RootContainer>
-          <Logo />
-          <Linkbar />
-          <TitleText>マウスしたりWebしたり</TitleText>
-          <MainContainer>
-            <Switch>
-              <Route exact path="/">
-                <CardContainer>
-                  <Cards />
-                </CardContainer>
-              </Route>
-              <ArticleRouter />
-            </Switch>
-          </MainContainer>
-        </RootContainer>
+        <TransitionGroup>
+          <CSSTransition classNames="fade" timeout={500}>
+            <ScrollToTop>
+              <RootContainer>
+                <Logo />
+                {/* <Linkbar /> */}
+                <TitleText>マウスしたりWebしたり</TitleText>
+                <MainContainer>
+                  <Switch>
+                    <Route exact path="/" component={Cards} />
+                    {/* <ArticleRouter /> */}
+                    <Route
+                      exact
+                      path="/article/:id"
+                      render={({ match }) => {
+                        if (typeof contents[match.params.id] === 'undefined') {
+                          return <NotFound />;
+                        }
+                        return <MarkdownParse match={match} />;
+                      }}
+                    />
+                    <Route exact component={NotFound} />
+                  </Switch>
+                </MainContainer>
+              </RootContainer>
+            </ScrollToTop>
+          </CSSTransition>
+        </TransitionGroup>
       </BrowserRouter>
     );
   }

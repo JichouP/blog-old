@@ -1,27 +1,55 @@
 import React, { Component } from 'react';
 import noimage from './res/noimage.png';
 import styled from 'styled-components';
+import media from 'styled-media-query';
+const sp = media.lessThan('small');
+const mid = media.lessThan('medium');
 
 const CardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 4vw 0rem;
+  max-width: 100%;
+  height: 15vw;
+  min-height: 3rem;
+  max-height: 10rem;
+  word-wrap: normal;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
+  transition: 0.3s;
+  transform: scale(1);
+  :hover {
+    transition: 0.3s;
+    transform: scale(1.1);
+  }
 `;
 const CardImg = styled.img`
-  border-radius: 5px 5px 0 0;
-  width: 100%;
+  border-radius: 5px;
+  max-width: 25%;
+  object-fit: cover;
 `;
 const CardContent = styled.div`
-  padding: 20px;
+  width: 100%;
+  padding: 1rem;
+  ${mid`padding: 0.5rem;`}
+  ${sp`padding: 0rem;`}
+  overflow: hidden;
 `;
 const CardTitle = styled.h1`
-  font-size: 20px;
-  margin-bottom: 20px;
-  text-align: center;
+  font-size: 1.5rem;
+  ${mid`font-size: 1rem`};
+  margin-left: 1rem;
+  ${sp`margin-top: 0.2rem;`}
+  text-align: left;
   color: #333;
   overflow: hidden;
 `;
 const CardDate = styled.p`
+  position: absolute;
+  right: 1rem;
+  bottom: 0rem;
+  margin-bottom: 0.2rem;
   color: #777;
   font-size: 0.9rem;
   text-align: right;
@@ -39,11 +67,11 @@ export default class Card extends Component<Props, {}> {
   }
   render() {
     return (
-      <CardContainer className="card">
-        <CardImg className="card-img" src={this.props.imageUrl || noimage} alt="" />
-        <CardContent className="card-content">
-          <CardTitle className="card-title">{this.props.title}</CardTitle>
-          <CardDate className="card-date">Posted at {this.props.date}</CardDate>
+      <CardContainer>
+        <CardImg src={this.props.imageUrl || noimage} alt="" />
+        <CardContent>
+          <CardTitle>{this.props.title}</CardTitle>
+          <CardDate>Posted at {this.props.date}</CardDate>
         </CardContent>
       </CardContainer>
     );
