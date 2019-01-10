@@ -12,7 +12,7 @@ const sp = media.lessThan('large');
 const CardContainer = styled.div`
   margin: 0rem auto;
   max-width: 60vw;
-  ${sp`max-width: 80vw`}
+  ${sp`max-width: 90vw`}
 `;
 
 export default class Cards extends Component {

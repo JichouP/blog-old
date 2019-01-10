@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import media from 'styled-media-query';
 import Logo from './Logo';
 import Cards from './Cards';
 import ScrollToTop from './ScrollToTop';
@@ -10,6 +11,10 @@ import NotFound from './NotFound';
 
 import contents from './contents/*/*.*';
 import MarkdownParse from './MarkdownParse';
+
+const BASE_URL = '/blog';
+
+const sp = media.lessThan('small');
 
 const RootContainer = styled.div`
   padding: 4rem 0rem;
@@ -21,6 +26,7 @@ const TitleText = styled.p`
 `;
 const MainContainer = styled.div`
   margin: 3rem;
+  ${sp`margin: 0rem;`}
 `;
 
 class App extends Component<{}, {}> {
@@ -29,7 +35,7 @@ class App extends Component<{}, {}> {
   }
   render() {
     return (
-      <BrowserRouter basename="/blog">
+      <BrowserRouter basename={BASE_URL}>
         <TransitionGroup>
           <CSSTransition classNames="fade" timeout={500}>
             <ScrollToTop>

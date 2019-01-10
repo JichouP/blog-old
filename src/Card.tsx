@@ -11,9 +11,9 @@ const CardContainer = styled.div`
   margin: 4vw 0rem;
   max-width: 100%;
   height: 15vw;
-  min-height: 3rem;
+  min-height: 4rem;
   max-height: 10rem;
-  word-wrap: normal;
+  overflow: hidden;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
@@ -34,16 +34,15 @@ const CardContent = styled.div`
   padding: 1rem;
   ${mid`padding: 0.5rem;`}
   ${sp`padding: 0rem;`}
-  overflow: hidden;
 `;
 const CardTitle = styled.h1`
   font-size: 1.5rem;
   ${mid`font-size: 1rem`};
   margin-left: 1rem;
   ${sp`margin-top: 0.2rem;`}
+  white-space: nowrap;
   text-align: left;
   color: #333;
-  overflow: hidden;
 `;
 const CardDate = styled.p`
   position: absolute;
@@ -52,7 +51,6 @@ const CardDate = styled.p`
   margin-bottom: 0.2rem;
   color: #777;
   font-size: 0.9rem;
-  text-align: right;
 `;
 
 interface Props {
