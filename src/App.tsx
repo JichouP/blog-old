@@ -29,7 +29,7 @@ class App extends Component<{}, {}> {
   }
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/blog">
         <TransitionGroup>
           <CSSTransition classNames="fade" timeout={500}>
             <ScrollToTop>
