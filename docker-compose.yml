@@ -15,5 +15,3 @@ services:
       - "./public:/usr/share/nginx/html:ro"
       - /etc/letsencrypt:/etc/letsencrypt:ro
     restart: always
-volumes_from:
-  - nginx
