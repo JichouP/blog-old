@@ -2,7 +2,7 @@ FROM node:latest
 
 MAINTAINER  JichouP
 
-WORKDIR .
+COPY . .
 
 RUN npm ci
 RUN npm run clean
