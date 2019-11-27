@@ -43,7 +43,10 @@ export default ({ children }: Props) => {
       var w = d.getElementById(i);
       d.body.appendChild(j);
     }
-    return () => {};
+    return () => {
+      const el = d.getElementById(i);
+      d.body.removeChild(el!);
+    };
   }, []);
   return (
     <div
