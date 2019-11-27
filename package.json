@@ -39,6 +39,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-infinite-scroll-component": "^5.0.4",
     "react-typography": "^0.16.19",
     "snapsvg": "^0.5.1",
     "typescript": "^3.7.2",

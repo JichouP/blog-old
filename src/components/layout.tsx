@@ -10,8 +10,26 @@ import SocialButtons from './SocialButtons';
 interface Props {
   children: ReactNode;
 }
+interface Site {
+  site: {
+    siteMetadata: {
+      description: string;
+    };
+  };
+}
 
 export default ({ children }: Props) => {
+  const { site }: Site = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            description
+          }
+        }
+      }
+    `
+  );
   useEffect(() => {
     // const logo = document.getElementsByTagName('svg');
     // if (logo) {
@@ -52,6 +70,19 @@ export default ({ children }: Props) => {
           `}
         ></div>
       </Link>
+      <div
+        css={css`
+          text-align: center;
+        `}
+      >
+        <h3
+          css={css`
+            display: inline-block;
+          `}
+        >
+          {site.siteMetadata.description}
+        </h3>
+      </div>
       {/* <Link
         to={`/about/`}
         css={css`
