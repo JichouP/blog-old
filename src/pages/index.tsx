@@ -51,7 +51,7 @@ export default ({ data }: Props) => {
                 {node.frontmatter.title}{' '}
                 <span
                   css={css`
-                    color: #bbb;
+                    color: #888;
                   `}
                 >
                   — {node.frontmatter.date}
