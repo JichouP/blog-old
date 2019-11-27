@@ -56,6 +56,10 @@ function SEO({ description, lang, meta, title }: Props) {
           content: `summary`,
         },
         {
+          name: `twitter:site`,
+          content: site.siteMetadata.author
+        }
+        {
           name: `twitter:creator`,
           content: site.siteMetadata.author,
         },
@@ -66,6 +70,10 @@ function SEO({ description, lang, meta, title }: Props) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: `https://i.imgur.com/R9jROXu.png`,
         },
       ].concat(meta)}
     />
