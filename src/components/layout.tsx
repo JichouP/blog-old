@@ -106,7 +106,7 @@ export default ({ children }: Props) => {
           >
             <img
               id="feedlyFollow"
-              src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png"
+              src="https://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png"
               alt="follow us in feedly"
               width="66"
               height="20"
