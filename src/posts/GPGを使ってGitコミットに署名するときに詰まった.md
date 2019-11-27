@@ -19,7 +19,7 @@ git config --global gpg.program $(where gpg)
 [gpg]
   program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
 ```
-
+  
 ### WSL2 Ubuntu18.04の場合
 
 gnupg2を使用するときは`GPG_KEY`の環境変数を指定する必要があるみたい  
