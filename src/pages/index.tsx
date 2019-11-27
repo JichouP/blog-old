@@ -10,7 +10,7 @@ export default ({ data }: Props) => {
     <Layout>
       <SEO title="Top" description={data.site.siteMetadata.description}></SEO>
       <div>
-        <div
+        {/* <div
           css={css`
             text-align: center;
           `}
@@ -22,7 +22,7 @@ export default ({ data }: Props) => {
           >
             {data.site.siteMetadata.description}
           </h3>
-        </div>
+        </div> */}
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div

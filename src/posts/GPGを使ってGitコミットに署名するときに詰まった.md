@@ -15,7 +15,7 @@ git config --global gpg.program $(where gpg)
 
 だいたいの場合，`.gitconfig`はこうなる
 
-```plaintext
+```
 [gpg]
   program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
 ```
@@ -25,7 +25,7 @@ git config --global gpg.program $(where gpg)
 gnupg2を使用するときは`GPG_KEY`の環境変数を指定する必要があるみたい  
 これを`.zshrc`に追加する
 
-```sh
+```shell
 export GPG_TTY=$(tty)
 ```
 
