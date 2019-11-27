@@ -36,7 +36,6 @@ export default ({ children }: Props) => {
     const d = document;
     const i = 'pocket-btn-js';
     if (!d.getElementById(i)) {
-      console.log('object');
       var j = d.createElement('script');
       j.id = i;
       j.src = 'https://widgets.getpocket.com/v1/j/btn.js?v=1';
