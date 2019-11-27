@@ -4,6 +4,7 @@ module.exports = {
     title: `JichouP Blog`,
     description: `マウスしたりWebしたり`,
     author: `JichouP`,
+    image: `https://i.imgur.com/R9jROXu.png`,
   },
   plugins: [
     {

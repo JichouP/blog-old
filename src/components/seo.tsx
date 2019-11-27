@@ -10,8 +10,19 @@ interface Props {
   title: string;
 }
 
+interface Site {
+  site: {
+    siteMetadata: {
+      title: string;
+      description: string;
+      author: string;
+      image: string;
+    };
+  };
+}
+
 function SEO({ description, lang, meta, title }: Props) {
-  const { site } = useStaticQuery(
+  const { site }: Site = useStaticQuery(
     graphql`
       query {
         site {
@@ -19,6 +30,7 @@ function SEO({ description, lang, meta, title }: Props) {
             title
             description
             author
+            image
           }
         }
       }
@@ -26,6 +38,7 @@ function SEO({ description, lang, meta, title }: Props) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const image = site.siteMetadata.image;
 
   return (
     <Helmet
@@ -73,7 +86,7 @@ function SEO({ description, lang, meta, title }: Props) {
         },
         {
           name: `twitter:image`,
-          content: `https://i.imgur.com/R9jROXu.png`,
+          content: image,
         },
       ].concat(meta)}
     />
