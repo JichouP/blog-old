@@ -20,7 +20,7 @@ SEO関連やWPA関連がデフォルトで用意されているので，プラ�
 例えばこれ．ちゃんとカードが出ています．  
 また，pluginを使うとTwitterのembedもイイカンジに埋め込めます．
 
-<blockquote class="twitter-tweet"><p lang="und" dir="ltr"><a href="https://t.co/JVFCo0132c">https://t.co/JVFCo0132c</a></p>&mdash; 𝓙𝓲𝓬𝓱𝓸𝓾𝓟💛 (@JichouP) <a href="https://twitter.com/JichouP/status/1198685944284450817?ref_src=twsrc%5Etfw">November 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="und" dir="ltr"><a href="https://t.co/vIZXD0olz2">https://t.co/vIZXD0olz2</a></p>&mdash; 𝓙𝓲𝓬𝓱𝓸𝓾𝓟💛 (@JichouP) <a href="https://twitter.com/JichouP/status/1199575712463609858?ref_src=twsrc%5Etfw">November 27, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### コードブロック
 
