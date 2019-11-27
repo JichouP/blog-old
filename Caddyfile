@@ -1,7 +1,4 @@
 jichoup.com {
   root /home/jichoup/workspace/blog/public
-  rewrite .* {
-    to {path} /
-  }
 }
 gzip
