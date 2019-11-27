@@ -153,13 +153,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-feed`,
     },
-    // {
-    //   resolve: 'gatsby-plugin-robots-txt',
-    //   options: {
-    //     host: 'https://jichoup.com',
-    //     sitemap: 'https://jichoup.com/sitemap.xml',
-    //     policy: [{ userAgent: '*', allow: '/' }],
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://jichoup.com',
+        sitemap: 'https://jichoup.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 };
