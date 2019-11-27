@@ -9,7 +9,7 @@ date: '2019-11-26'
 
 コマンドプロンプトだから多分動かないけど，やりたいことはこれ
 
-```sh
+```shell
 git config --global gpg.program $(where gpg)
 ```
 

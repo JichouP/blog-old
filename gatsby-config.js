@@ -1,10 +1,10 @@
 module.exports = {
-  pathPrefix: `/blog`,
   siteMetadata: {
     title: `JichouP Blog`,
     description: `マウスしたりWebしたり`,
     author: `JichouP`,
     image: `https://i.imgur.com/R9jROXu.png`,
+    siteUrl: `https://jichoup.com`,
   },
   plugins: [
     {
@@ -14,7 +14,6 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    `gatsby-transformer-remark`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,
@@ -58,6 +57,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-code-titles`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -119,8 +119,47 @@ module.exports = {
               },
             },
           },
+          {
+            resolve: 'gatsby-remark-emojis',
+            options: {
+              // falseにすると絵文字機能をオフにできます
+              active: true,
+              // サイズは16, 24, 32, 64から選べます
+              size: 64,
+              // 独自クラスを追加できます
+              class: 'emoji-icon',
+              // 独自スタイルを追加できます
+              styles: {
+                display: 'inline',
+                margin: '0',
+                'margin-top': '1px',
+                position: 'relative',
+                top: '5px',
+                width: '25px',
+              },
+            },
+          },
+          `gatsby-remark-katex`,
         ],
       },
     },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://jichoup.com`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+    },
+    // {
+    //   resolve: 'gatsby-plugin-robots-txt',
+    //   options: {
+    //     host: 'https://jichoup.com',
+    //     sitemap: 'https://jichoup.com/sitemap.xml',
+    //     policy: [{ userAgent: '*', allow: '/' }],
+    //   },
+    // },
   ],
 };
