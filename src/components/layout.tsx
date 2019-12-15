@@ -62,13 +62,13 @@ export default ({ children }: Props) => {
       `}
     >
       <Link to={`/`}>
-        <div
+        <h1
           id="logo-container"
           css={css`
             text-align: center;
             margin-bottom: ${rhythm(1)};
           `}
-        ></div>
+        ></h1>
       </Link>
       <div
         css={css`
